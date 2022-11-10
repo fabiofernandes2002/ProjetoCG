@@ -1,0 +1,161 @@
+:root {
+    --color-primary: #6cc6bdff;
+    --color-secondary: #60bbaeff;
+    --color-tertiary: #54af9eff;
+    --color-quaternary: #47a38fff;
+    --color-quinary: #3b9780ff;
+}
+
+body,
+html {
+    height: 99%;
+    scroll-behavior: smooth;
+
+    background-image: url("https://i.postimg.cc/qRfVJrKk/background.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* RETÂNGULO PRINCIPAL */
+.rec {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 800px;
+    height: 300px;
+    border-radius: 38px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    opacity: 0.7;
+    box-shadow: 29px 29px 59px #989898, -29px -29px 59px #ffffff;
+}
+
+.button-jogar {
+    position: absolute;
+    top: 45%;
+    left: 42.4%;
+    width: 230px;
+    height: 55px;
+    border-radius: 15px;
+    transition: all 0.25s ease;
+    background: #3b9780;
+}
+
+.button-jogar:hover {
+    transform: translate(0, -5px) scale(1.05);
+}
+
+.button-jogar:active {
+    border-radius: 20px;
+    background: lightblue;
+    box-shadow: inset 20px 20px 60px blue, inset -20px -20px 60px blue;
+}
+
+.button-instrucoes {
+    position: absolute;
+    top: 55%;
+    left: 43.5%;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    transition: all 0.25s ease;
+    background: #787f58;
+    opacity: 0.6;
+}
+
+.button-instrucoes:hover {
+    transform: translate(0, -5px) scale(1.05);
+    opacity: 1;
+}
+
+.button-instrucoes:active {
+    border-radius: 20px;
+    background: lightblue;
+    box-shadow: inset 20px 20px 60px blue, inset -20px -20px 60px blue;
+}
+
+#botoes {
+    text-align: center;
+    color: #ffff;
+    font-size: 20px;
+    font-family: "Arial";
+    font-weight: bold;
+}
+
+.title {
+    position: relative;
+    top: 25%;
+    left: 1.2%;
+    font-size: 50px;
+}
+
+.glass-move {
+    animation: float 4s ease-in-out infinite;
+    position: absolute;
+    top: 80%;
+    left: 5%;
+}
+
+.bag-move {
+    animation: float 3.4s ease-in-out infinite;
+    position: absolute;
+    top: 500px;
+
+}
+
+.text_shadows {
+    text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+    font-family: bungee, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: calc(2rem + 5vw);
+    text-align: center;
+    margin: 0;
+    color: var(--color-primary);
+    animation: shadows 4.2s ease-in infinite, move 4.2s ease-in infinite;
+    letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+    0% {
+        text-shadow: none;
+    }
+
+    20% {
+        text-shadow: 3px 3px 0 var(--color-secondary), 6px 6px 0 var(--color-tertiary), 9px 9px var(--color-quaternary), 12px 12px 0 var(--color-quinary);
+    }
+
+    100% {
+        text-shadow: none;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    20% {
+        transform: translate(-12px, -12px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+/* Animação dos icones flutuantes */
+@keyframes float {
+    0% {
+        /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
