@@ -1,162 +1,161 @@
 body {
-    margin: 0;
-    line-height: normal;
-  }
-  .istockphoto-1283740417-170667a-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1920px;
-    height: 1080px;
-    object-fit: cover;
-    opacity: 0.75;
-  }
-  .chronometer-icon {
-    position: absolute;
-    top: 118px;
-    left: 155px;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-  }
-  .nvel-1-div,
-  .pontos-0-div,
-  .s-div {
-    position: absolute;
-    top: 114px;
-    left: 215px;
-    display: inline-block;
-  }
-  .nvel-1-div,
-  .pontos-0-div {
-    top: 43px;
-    left: 155px;
-  }
-  .nvel-1-div {
-    top: 114px;
-    left: 1604px;
-  }
-  .retngulo-2-button,
-  .sair-button {
-    cursor: pointer;
-    padding: 0;
-    position: absolute;
-  }
-  .retngulo-2-button {
-    border: 2px solid var(--color-blue);
-    background-color: var(--color-white);
-    top: 53px;
-    left: 1625px;
-    border-radius: 25px;
-    box-sizing: border-box;
-    width: 109px;
-    height: 54px;
-  }
-  .sair-button {
-    border: 0;
-    background-color: transparent;
-    top: 57px;
-    left: 1650px;
-    font-size: var(--font-size-sm);
-    display: inline-block;
-    font-style: italic;
-    font-weight: 900;
-    font-family: var(--font-saira);
-    color: var(--color-blue);
-    text-align: left;
-  }
-  .retngulo-6-div {
-    position: absolute;
-    top: 321px;
-    left: 508px;
-    border-radius: var(--br-md);
-    background-color: var(--color-white);
-    width: 905px;
-    height: 438px;
-  }
-  .parabns-conseguiste-a {
-    margin-block-start: 0;
-    margin-block-end: 0;
-  }
-  .para-passar-de {
-    margin: 0;
-  }
-  .parabns-conseguiste-a-pontua {
-    position: absolute;
-    top: 392px;
-    left: 532px;
-    font-size: var(--font-size-sm);
-    text-transform: uppercase;
-    text-align: center;
-    display: inline-block;
-    width: 870px;
-    height: 79px;
-  }
-  .retngulo-7-button {
-    cursor: pointer;
-    border: 1px solid var(--color-gray);
-    padding: 0;
-    background-color: var(--color-indigo);
-    position: absolute;
-    top: 531px;
-    left: 769px;
-    border-radius: var(--br-md);
-    box-sizing: border-box;
-    width: 382px;
-    height: 77px;
-  }
-  .repetir-nvel {
-    border: 0;
-    background-color: transparent;
-    top: 540px;
-    left: 843px;
-    font-size: var(--font-size-base);
-    display: inline-block;
-    font-style: italic;
-    font-weight: 900;
-    font-family: var(--font-saira);
-    color: var(--color-white);
-    text-align: left;
-  }
-  .nvel-seguinte-button,
-  .repetir-nvel,
-  .retngulo-8-button {
-    cursor: pointer;
-    padding: 0;
-    position: absolute;
-  }
-  .retngulo-8-button {
-    border: 1px solid var(--color-gray);
-    background-color: var(--color-indigo);
-    top: 634px;
-    left: 769px;
-    border-radius: var(--br-md);
-    box-sizing: border-box;
-    width: 382px;
-    height: 77px;
-  }
-  .nvel-seguinte-button {
-    border: 0;
-    background-color: transparent;
-    top: 642px;
-    left: 823px;
-    font-size: var(--font-size-base);
-    display: inline-block;
-    font-style: italic;
-    font-weight: 900;
-    font-family: var(--font-saira);
-    color: var(--color-white);
-    text-align: left;
-  }
-  .nivel-1-1 {
-    position: relative;
-    background-color: var(--color-white);
-    width: 100%;
-    height: 1080px;
-    overflow: hidden;
-    text-align: left;
-    font-size: var(--font-size-lg);
-    color: var(--color-blue);
-    font-family: var(--font-inter);
-  }
-  
+  margin: 0;
+  line-height: normal;
+}
+.istockphoto-1283740417-170667a-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  object-fit: cover;
+  opacity: 0.75;
+}
+.chronometer-icon {
+  position: absolute;
+  top: 118px;
+  left: 155px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.nvel-1-div,
+.pontos-0-div,
+.s-div {
+  position: absolute;
+  top: 114px;
+  left: 215px;
+  display: inline-block;
+}
+.nvel-1-div,
+.pontos-0-div {
+  top: 43px;
+  left: 155px;
+}
+.nvel-1-div {
+  top: 114px;
+  left: 1604px;
+}
+.retngulo-2-button,
+.sair-button {
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+}
+.retngulo-2-button {
+  border: 2px solid var(--color-blue);
+  background-color: var(--color-white);
+  top: 53px;
+  left: 1625px;
+  border-radius: 25px;
+  box-sizing: border-box;
+  width: 109px;
+  height: 54px;
+}
+.sair-button {
+  border: 0;
+  background-color: transparent;
+  top: 57px;
+  left: 1650px;
+  font-size: var(--font-size-sm);
+  display: inline-block;
+  font-style: italic;
+  font-weight: 900;
+  font-family: var(--font-saira);
+  color: var(--color-blue);
+  text-align: left;
+}
+.retngulo-6-div {
+  position: absolute;
+  top: 321px;
+  left: 508px;
+  border-radius: var(--br-md);
+  background-color: var(--color-white);
+  width: 905px;
+  height: 438px;
+}
+.parabns-conseguiste-a {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.para-passar-de {
+  margin: 0;
+}
+.parabns-conseguiste-a-pontua {
+  position: absolute;
+  top: 392px;
+  left: 532px;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  width: 870px;
+  height: 79px;
+}
+.retngulo-7-button {
+  cursor: pointer;
+  border: 1px solid var(--color-gray);
+  padding: 0;
+  background-color: var(--color-indigo);
+  position: absolute;
+  top: 531px;
+  left: 769px;
+  border-radius: var(--br-md);
+  box-sizing: border-box;
+  width: 382px;
+  height: 77px;
+}
+.repetir-nvel {
+  border: 0;
+  background-color: transparent;
+  top: 540px;
+  left: 843px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  font-style: italic;
+  font-weight: 900;
+  font-family: var(--font-saira);
+  color: var(--color-white);
+  text-align: left;
+}
+.nvel-seguinte-button,
+.repetir-nvel,
+.retngulo-8-button {
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+}
+.retngulo-8-button {
+  border: 1px solid var(--color-gray);
+  background-color: var(--color-indigo);
+  top: 634px;
+  left: 769px;
+  border-radius: var(--br-md);
+  box-sizing: border-box;
+  width: 382px;
+  height: 77px;
+}
+.nvel-seguinte-button {
+  border: 0;
+  background-color: transparent;
+  top: 642px;
+  left: 823px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  font-style: italic;
+  font-weight: 900;
+  font-family: var(--font-saira);
+  color: var(--color-white);
+  text-align: left;
+}
+.nivel-1-1 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-blue);
+  font-family: var(--font-inter);
+}

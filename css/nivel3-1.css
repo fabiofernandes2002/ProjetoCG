@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  .two-kids-picking-garbage-park-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    object-fit: cover;
+    opacity: 0.75;
+  }
+  .chronometer-icon {
+    position: absolute;
+    top: 118px;
+    left: 155px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  .nvel-3-div,
+  .s-div {
+    position: absolute;
+    top: 114px;
+    left: 215px;
+    display: inline-block;
+  }
+  .nvel-3-div {
+    left: 1601px;
+  }
+  .retngulo-2-div {
+    position: absolute;
+    top: 53px;
+    left: 1625px;
+    border-radius: var(--br-sm);
+    background-color: var(--color-white);
+    width: 109px;
+    height: 54px;
+  }
+  .sair {
+    position: absolute;
+    top: 61px;
+    left: 1650px;
+    font-size: var(--font-size-sm);
+    display: inline-block;
+    font-weight: 900;
+    font-family: var(--font-saira);
+  }
+  .paper-recycle-icon {
+    position: absolute;
+    top: 265px;
+    left: 128px;
+    width: 333px;
+    height: 333px;
+    object-fit: cover;
+  }
+  .pontos-0-div {
+    position: absolute;
+    top: 43px;
+    left: 155px;
+    display: inline-block;
+  }
+  .retngulo-2-button,
+  .sair-button {
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+  }
+  .retngulo-2-button {
+    border: 2px solid var(--color-blue);
+    background-color: var(--color-white);
+    top: 53px;
+    left: 1625px;
+    border-radius: var(--br-sm);
+    box-sizing: border-box;
+    width: 109px;
+    height: 54px;
+  }
+  .sair-button {
+    border: 0;
+    background-color: transparent;
+    top: 56px;
+    left: 1650px;
+    font-size: var(--font-size-sm);
+    display: inline-block;
+    font-style: italic;
+    font-weight: 900;
+    font-family: var(--font-saira);
+    color: var(--color-blue);
+    text-align: left;
+  }
+  .battery-icon {
+    position: absolute;
+    top: 265px;
+    left: 1460px;
+    width: 333px;
+    height: 333px;
+    object-fit: cover;
+  }
+  .heart-icon,
+  .heart-icon1,
+  .heart-icon2 {
+    position: absolute;
+    top: 108px;
+    left: 314px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+  .heart-icon1,
+  .heart-icon2 {
+    left: 394px;
+  }
+  .heart-icon2 {
+    left: 474px;
+  }
+  .retngulo-6-div {
+    position: absolute;
+    top: 173px;
+    left: 508px;
+    border-radius: var(--br-md);
+    background-color: var(--color-white);
+    width: 905px;
+    height: 735px;
+  }
+  .parabns-conseguiste-a {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  .para-concluir-o {
+    margin: 0;
+  }
+  .parabns-conseguiste-a-pontua {
+    position: absolute;
+    top: 247px;
+    left: 531px;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    width: 870px;
+    height: 79px;
+  }
+  .retngulo-7-button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-indigo);
+    position: absolute;
+    top: 628px;
+    left: 769px;
+    border-radius: var(--br-md);
+    width: 382px;
+    height: 77px;
+  }
+  .repetir-nvel {
+    background-color: transparent;
+    top: 636px;
+    left: 843px;
+    font-size: var(--font-size-base);
+    display: inline-block;
+    font-style: italic;
+    font-weight: 900;
+    font-family: var(--font-saira);
+    color: var(--color-white);
+    text-align: left;
+  }
+  .menu-inicial-button,
+  .repetir-nvel,
+  .retngulo-8-button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    position: absolute;
+  }
+  .retngulo-8-button {
+    background-color: var(--color-indigo);
+    top: 731px;
+    left: 769px;
+    border-radius: var(--br-md);
+    width: 382px;
+    height: 77px;
+  }
+  .menu-inicial-button {
+    background-color: transparent;
+    top: 739px;
+    left: 844px;
+    font-size: var(--font-size-base);
+    display: inline-block;
+    font-style: italic;
+    font-weight: 900;
+    font-family: var(--font-saira);
+    color: var(--color-white);
+    text-align: left;
+  }
+  .nvel-1-15-pontos-conseguidos,
+  .nvel-2-25-pontos-conseguidos,
+  .nvel-2-30-pontos-conseguidos {
+    position: absolute;
+    top: 383px;
+    left: 684px;
+    font-size: var(--font-size-base);
+    display: inline-block;
+  }
+  .nvel-2-25-pontos-conseguidos,
+  .nvel-2-30-pontos-conseguidos {
+    top: 461px;
+  }
+  .nvel-2-30-pontos-conseguidos {
+    top: 539px;
+  }
+  .nivel-3-1 {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 1080px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-lg);
+    color: var(--color-blue);
+    font-family: var(--font-inter);
+  }
+  

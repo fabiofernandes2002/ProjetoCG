@@ -1,38 +1,172 @@
+/* Nível 1 */
 :root {
-    /* fonts */
-    --font-saira: Saira;
-    --font-inter: Inter;
-  
-    /* font sizes */
-    --font-size-sm: 30px;
-    --font-size-base: 45px;
-  
-    /* Colors */
-    --color-white: #fff;
-    --color-black: #000;
-    --color-blue: #361be0;
-  
-    /* border radiuses */
-    --br-md: 25px;
-  }
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
 
-  :root {
-    /* fonts */
-    --font-saira: Saira;
-    --font-inter: Inter;
-  
-    /* font sizes */
-    --font-size-sm: 30px;
-    --font-size-base: 40px;
-    --font-size-lg: 45px;
-  
-    /* Colors */
-    --color-white: #fff;
-    --color-gray: #707070;
-    --color-indigo: #5b22cb;
-    --color-blue: #361be0;
-  
-    /* border radiuses */
-    --br-md: 55px;
-  }
-  
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-md: 25px;
+}
+
+/* Nível 1 fim */
+:root {
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 40px;
+  --font-size-lg: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-gray: #707070;
+  --color-indigo: #5b22cb;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-md: 55px;
+}
+
+:root {
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-md: 55px;
+}
+
+/* Nível 2 */
+:root {
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-md: 55px;
+}
+
+/* Nível 2 fim */
+:root {
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 40px;
+  --font-size-lg: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-gray: #707070;
+  --color-indigo: #5b22cb;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-sm: 25px;
+  --br-md: 55px;
+}
+
+:root {
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-sm: 25px;
+  --br-md: 55px;
+}
+
+/* Nível 3 */
+:root {
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-md: 25px;
+}
+
+/* Nível 3 fim */
+:root {
+  /* fonts */
+  --font-inter: Inter;
+  --font-saira: Saira;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 40px;
+  --font-size-lg: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-blue: #361be0;
+  --color-indigo: #5b22cb;
+
+  /* border radiuses */
+  --br-sm: 25px;
+  --br-md: 55px;
+}
+
+:root {
+  /* fonts */
+  --font-saira: Saira;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-sm: 30px;
+  --font-size-base: 45px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-blue: #361be0;
+
+  /* border radiuses */
+  --br-sm: 25px;
+  --br-md: 55px;
+}
