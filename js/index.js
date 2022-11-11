@@ -176,5 +176,97 @@ function nextLevel3() {
     }
 }
 
+// função de rgisto de utilizador
+function register() {
+    var username = document.getElementById("username").value; // recupera username
+    var password = document.getElementById("password").value; // recupera password
+    localStorage.setItem("username", username); // guarda username
+    localStorage.setItem("password", password); // guarda password
+    window.location.href = "login.html"; // navega para a página de login
+}
+
+// função de login de utilizador
+function login() {
+    var username = document.getElementById("username").value; // recupera username
+    var password = document.getElementById("password").value; // recupera password
+    var username2 = localStorage.getItem("username"); // recupera username
+    var password2 = localStorage.getItem("password"); // recupera password
+    if (username == username2 && password == password2) {
+        window.location.href = "index.html"; // navega para a página inicial
+    } else {
+        alert("Wrong username or password!"); // alerta
+    }
+}
+
+// função que faz navegar para a página de login
+function logout() {
+    window.location.href = "login.html";
+}
+
+// função que faz movimentar imagens aleatórias no canvas para a esquerda
+function moveLeft() {
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("img");
+    var x = Math.floor(Math.random() * 500);
+    var y = Math.floor(Math.random() * 500);
+    ctx.drawImage(img, x, y);
+    x = x - 1;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, x, y);
+    setTimeout(moveLeft, 10);
+}
+
+
+let points = 0; // pontos
+let level = 1; // nível
+let lives = 3; // vidas
+
+// mostrar pontos
+function showPoints() {
+    document.getElementById("points").innerHTML = points;
+}
+
+// contar pontos
+function countPoints() {
+    points = points + 1;
+    showPoints();
+}
+
+// contar nível
+function countLevel() {
+    level = level + 1;
+    document.getElementById("level").innerHTML = level;
+}
+
+// contar vidas
+function countLives() {
+    lives = lives - 1;
+    document.getElementById("lives").innerHTML = lives;
+}
+
+// função que passa o jogador de nível só se atingir 15 pontos
+function nextLevel2() {
+    if (points >= 15) {
+        countLevel();
+        window.location.href = "level" + level + ".html"; // navega para o nível
+    } else {
+        alert("You need 15 points to pass to the next level!"); // alerta
+    }
+}
+
+
+
+// mostrar nível
+function showLevel() {
+    document.getElementById("level").innerHTML = level;
+}
+
+// mostrar vidas
+function showLives() {
+    document.getElementById("lives").innerHTML = lives;
+}   
+
+
 
 
