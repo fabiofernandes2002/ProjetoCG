@@ -2,7 +2,7 @@ body {
     margin: 0;
     line-height: normal;
   }
-  .istockphoto-1283740417-170667a-icon {
+  .background {
     position: absolute;
     top: 0;
     left: 0;
@@ -11,7 +11,7 @@ body {
     object-fit: cover;
     opacity: 0.75;
   }
-  .chronometer-icon {
+  .crono {
     position: absolute;
     top: 118px;
     left: 155px;
@@ -19,30 +19,30 @@ body {
     height: 50px;
     object-fit: cover;
   }
-  .nvel-1-div,
-  .pontos-0-div,
-  .s-div {
+  .div-nivel,
+  .div-pontos,
+  .div-tempo {
     position: absolute;
     top: 114px;
     left: 215px;
     display: inline-block;
   }
-  .nvel-1-div,
-  .pontos-0-div {
+  .div-nivel,
+  .div-pontos {
     top: 43px;
     left: 155px;
   }
-  .nvel-1-div {
+  .div-nivel {
     top: 114px;
     left: 1604px;
   }
-  .retngulo-2-button,
-  .sair-button {
+  .retan-sair,
+  .botao-sair {
     cursor: pointer;
     padding: 0;
     position: absolute;
   }
-  .retngulo-2-button {
+  .retan-sair {
     border: 2px solid var(--color-blue);
     background-color: var(--color-white);
     top: 53px;
@@ -52,7 +52,7 @@ body {
     width: 109px;
     height: 54px;
   }
-  .sair-button {
+  .botao-sair {
     border: 0;
     background-color: transparent;
     top: 57px;
@@ -65,7 +65,7 @@ body {
     color: var(--color-blue);
     text-align: left;
   }
-  .retngulo-6-div {
+  .div-mensagem {
     position: absolute;
     top: 321px;
     left: 508px;
@@ -74,14 +74,14 @@ body {
     width: 905px;
     height: 438px;
   }
-  .no-conseguiste-a {
+  .p1 {
     margin-block-start: 0;
     margin-block-end: 0;
   }
-  .para-passar-de {
+  .p2 {
     margin: 0;
   }
-  .no-conseguiste-a-pontuao-su {
+  .div-1-frase {
     position: absolute;
     top: 392px;
     left: 531px;
@@ -92,13 +92,13 @@ body {
     width: 870px;
     height: 79px;
   }
-  .repetir-nvel,
-  .retngulo-7-button {
+  .botao-repetir,
+  .retan-repetir {
     cursor: pointer;
     padding: 0;
     position: absolute;
   }
-  .retngulo-7-button {
+  .retan-repetir {
     border: 1px solid #707070;
     background-color: #5b22cb;
     top: 560px;
@@ -108,7 +108,7 @@ body {
     width: 382px;
     height: 77px;
   }
-  .repetir-nvel {
+  .botao-repetir {
     border: 0;
     background-color: transparent;
     top: 569px;
