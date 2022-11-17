@@ -265,7 +265,38 @@ function showLevel() {
 // mostrar vidas
 function showLives() {
     document.getElementById("lives").innerHTML = lives;
-}   
+}
+
+// mover imagem para a esquerda no canvas
+function moveLeft() {
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("img");
+    var x = Math.floor(Math.random() * 500);
+    var y = Math.floor(Math.random() * 500);
+    ctx.drawImage(img, x, y);
+    x = x - 1;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, x, y);
+    setTimeout(moveLeft, 10);
+}
+
+// mover imagem para a esquerda no canvas com velocidade
+function moveLeft2() {
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("img");
+    var x = Math.floor(Math.random() * 500);
+    var y = Math.floor(Math.random() * 500);
+    ctx.drawImage(img, x, y);
+    x = x - 2; 
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, x, y);
+    setTimeout(moveLeft2, 10);
+}
+
+
+
 
 
 
