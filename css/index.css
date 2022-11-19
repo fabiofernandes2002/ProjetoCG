@@ -45,12 +45,6 @@ html {
   transform: translate(0, -5px) scale(1.05);
 }
 
-.button-jogar:active {
-  border-radius: 20px;
-  background: lightblue;
-  box-shadow: inset 20px 20px 60px blue, inset -20px -20px 60px blue;
-}
-
 .button-instrucoes {
   position: absolute;
   top: 55%;
@@ -66,12 +60,6 @@ html {
 .button-instrucoes:hover {
   transform: translate(0, -5px) scale(1.05);
   opacity: 1;
-}
-
-.button-instrucoes:active {
-  border-radius: 20px;
-  background: lightblue;
-  box-shadow: inset 20px 20px 60px blue, inset -20px -20px 60px blue;
 }
 
 #botoes {

@@ -35,6 +35,8 @@ loadImage('beach-ball');
 loadImage('ecoponto_azul');
 loadImage('ecoponto_amarelo');
 loadImage('ecoponto_verde');
+loadImage('ecoponto_castanho');
+loadImage('pilhao');
 
 function loadImage(name) {
     images[name] = new Image();
@@ -119,6 +121,8 @@ function addContainers() {
     ctx.drawImage(images['ecoponto_azul'], 300, 200, 200, 200);
     ctx.drawImage(images['ecoponto_amarelo'], 550, 200, 200, 200);
     ctx.drawImage(images['ecoponto_verde'], 800, 200, 200, 200);
+    ctx.drawImage(images['ecoponto_castanho'], 1050, 200, 200, 200);
+    ctx.drawImage(images['pilhao'], 1300, 200, 200, 200);
 }
 
 // adicionar a pontução do jogador no canvas

@@ -33,7 +33,7 @@ html {
   position: absolute;
   margin: auto;
   top: 20%;
-  left: 37.2%;
+  left: 43.5%;
   font-family: "Press Start 2P", cursive;
   font-size: 40px;
   color: #f0f0f0;
@@ -51,7 +51,7 @@ html {
   color: black;
 }
 
-.button-retornar {
+.button-voltar {
   position: absolute;
   top: 62%;
   left: 43.5%;
@@ -63,7 +63,7 @@ html {
   opacity: 0.6;
 }
 
-.button-retornar:hover {
+.button-voltar:hover {
   transform: translate(0, -5px) scale(1.05);
   opacity: 1;
 }
