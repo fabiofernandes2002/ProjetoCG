@@ -1,4 +1,4 @@
-// import minha classe de jogo
+//import minha classe de jogo
 //import Game from '/game.js';
 
 
