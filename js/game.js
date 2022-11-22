@@ -40,7 +40,7 @@ export default class Game {
     // função que mostra nível do jogador
     showLevel() {
         let level = localStorage.getItem("level"); // recupera nível
-        alert(level);
+        return level;
     }
 
     // função que conta o tempo do jogador

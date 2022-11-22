@@ -296,6 +296,170 @@ function moveLeft2() {
 }
 
 
+// drag and drop variables
+let dragok = false; // global drag status
+let startX = 0; // variável que guarda a posição inicial do eixo x
+let startY = 0 ; // variárel que guarda a posição inicial do eixo y
+
+
+
+
+
+
+
+
+// posição do mouse
+
+// função que permite arrastar as imagens dos lixos para os contentores
+// function the mousedown in array the images
+function mouseDown(e) {
+
+    e.preventDefault();
+
+    // get the mouse position
+    let mx = e.pageX - canvas.offsetLeft;
+    let my = e.pageY - canvas.offsetTop;
+
+    // test each rect to see if mouse is inside
+    for (const nome_lixo of nomes_lixos) {
+        if (mx > images[nome_lixo].lixo.x && mx < images[nome_lixo].lixo.x + images[nome_lixo].lixo.width && my > images[nome_lixo].lixo.y && my < images[nome_lixo].lixo.y + images[nome_lixo].lixo.height) {
+            console.log("lixo arrastado");
+            dragok = true;
+            startX = mx - images[nome_lixo].lixo.x;
+            startY = my - images[nome_lixo].lixo.y;
+            break;
+        }
+    }
+    
+}
+
+
+// function mouse move in array the images
+function mouseMove(e) {
+    e.preventDefault();
+    if (dragok) {
+        let mx = e.pageX - canvas.offsetLeft;
+        let my = e.pageY - canvas.offsetTop;
+        for (const nome_lixo of nomes_lixos) {
+            images[nome_lixo].lixo.x = mx - startX;
+            images[nome_lixo].lixo.y = my - startY;
+        }
+    }
+    
+}
+    
+
+// function mouse up in array the images
+function mouseUp(e) {
+    
+    e.preventDefault();
+    dragok = false;
+}
+
+function collision() {
+    let s = images[nomes_lixos[i]].lixo; // variável que guarda a imagem do lixo
+    let mx = s.x; // posição do eixo x da imagem do lixo
+    let my = s.y; // posição do eixo y da imagem do lixo
+    // let width = s.width; // largura da imagem do lixo   
+    // let height = s.height; // altura da imagem do lixo
+
+    // colisão com o ecoponto azul
+    if (mx > 300 && mx < 500 && my > 200 && my < 400) {
+        if (s.src === images['saco_papel'].src) {
+            score++;
+            s.x = 0;
+            s.y = 0;
+        } else {
+            score--;
+            s.x = 0;
+            s.y = 0;
+        }
+    }
+
+    // colisão com o ecoponto amarelo
+    if (mx > 550 && mx < 750 && my > 200 && my < 400) {
+        if (s.src === images['saco_plastico', 'garrafa', 'garrafa_agua'].src) {
+            score++;
+            s.x = 0;
+            s.y = 0;
+        } else {
+            score--;
+            s.x = 0;
+            s.y = 0;
+        }
+    }
+
+    // colisão com o ecoponto verde
+    if (mx > 800 && mx < 1000 && my > 200 && my < 400) {
+        if (s.src === images['copo'].src) {
+            score++;
+            s.x = 0;
+            s.y = 0;
+        } else {
+            score--;
+            s.x = 0;
+            s.y = 0;
+        }
+    }
+
+}
+
+if (score === 5) { // se o score for igual a 5
+    //alert("Parabéns, ganhou o jogo");
+    // redirect to modal page with the score
+    window.location.href = "../html/index.html";
+}
+
+
+// função que verifica se o meu lixo está no ecoponto correto se o type for igual ao type do ecoponto
+function collision() {
+    let s = images[nomes_lixos[i]].lixo; // variável que guarda a imagem do lixo
+    let mx = s.x; // posição do eixo x da imagem do lixo
+    let my = s.y; // posição do eixo y da imagem do lixo
+    // let width = s.width; // largura da imagem do lixo
+    // let height = s.height; // altura da imagem do lixo
+
+    // colisão com o ecoponto azul
+    if (mx > 300 && mx < 500 && my > 200 && my < 400) {
+        if (s.type === 'papel') {
+            score++;
+            // limpar
+        } else {
+            // apagar a imagem do lixo quando estiver no ecoponto correto
+            s.x = -200;
+            s.y = -200;
+        }
+    }
+
+    // colisão com o ecoponto amarelo
+    if (mx > 550 && mx < 750 && my > 200 && my < 400) {
+        if (s.type === 'plastico') {
+            score++;
+            s.x = 0;
+            s.y = 0;
+        } else {
+            score--;
+            s.x = -200;
+            s.y = -200;
+        }
+    }
+
+    // colisão com o ecoponto verde
+    if (mx > 800 && mx < 1000 && my > 200 && my < 400) {
+        if (s.type === 'vidro') {
+            score++;
+            s.x = 0;
+            s.y = 0;
+        } else {
+            score--;
+            s.x = -200;
+            s.y = -200;
+        }
+    }
+
+}
+
+
 
 
 
