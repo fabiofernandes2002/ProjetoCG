@@ -20,10 +20,11 @@ html {
 /* RETÂNGULO PRINCIPAL */
 .rec {
   position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 800px;
-  height: 300px;
+  margin: auto;
+  top: 22%;
+  left: 23%;
+  width: 850px;
+  height: 350px;
   border-radius: 38px;
   background: linear-gradient(145deg, #f0f0f0, #cacaca);
   opacity: 0.7;
@@ -47,7 +48,7 @@ html {
 
 .button-instrucoes {
   position: absolute;
-  top: 58%;
+  top: 56%;
   left: 43.5%;
   width: 200px;
   height: 50px;
@@ -73,7 +74,7 @@ html {
 .title {
   position: absolute;
   top: 25%;
-  left: 27.5%;
+  left: 25.5%;
   font-size: 50px;
 }
 
@@ -87,7 +88,36 @@ html {
 .bag-move {
   animation: float 3.4s ease-in-out infinite;
   position: absolute;
-  top: 500px;
+  top: 20%;
+  left: 10%;
+}
+
+.water-move {
+  animation: float 3.8s ease-in-out infinite;
+  position: absolute;
+  top: 55%;
+  left: 90%;
+}
+
+.bottle-move {
+  animation: float 2.2s ease-in-out infinite;
+  position: absolute;
+  top: 30%;
+  left: 80%;
+}
+
+.paper-move {
+  animation: float 4.1s ease-in-out infinite;
+  position: absolute;
+  top: 73%;
+  left: 82%;
+}
+
+.ball-move {
+  animation: float 3.2s ease-in-out infinite;
+  position: absolute;
+  top: 43%;
+  left: 12%;
 }
 
 .text_shadows {
@@ -103,6 +133,33 @@ html {
   animation: shadows 4.2s ease-in infinite, move 4.2s ease-in infinite;
   letter-spacing: 0.4rem;
 }
+
+.recycle {
+  position: absolute;
+  top: 45%;
+  left: 27%;
+  width: 150px;
+  height: 150px;
+  animation: rotate 10s linear infinite;
+}
+
+.recycle2 {
+  position: absolute;
+  top: 45%;
+  left: 65%;
+  width: 150px;
+  height: 150px;
+  animation: rotate 10s linear infinite;
+}
+
+.pulsate {
+  animation: fade-in 2s ease-in-out infinite;
+}
+
+.rotation {
+  animation: rotate 2s linear infinite;
+}
+
 
 @keyframes shadows {
   0% {
@@ -134,10 +191,32 @@ html {
   }
 }
 
-/* Animação dos icones flutuantes */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes float {
   0% {
-    /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
     transform: translatey(0px);
   }
 
@@ -147,5 +226,14 @@ html {
 
   100% {
     transform: translatey(0px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
