@@ -33,9 +33,11 @@ html {
   position: absolute;
   margin: auto;
   top: 20%;
-  left: 43.5%;
-  font-family: "Press Start 2P", cursive;
-  font-size: 40px;
+  left: 40%;
+  font-family: bungee, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 50px;
   color: #f0f0f0;
   text-shadow: 3px 3px 0 #989898;
 }
