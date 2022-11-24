@@ -7,7 +7,19 @@ const ctx = canvas.getContext("2d");
 
 const modalGameOver = document.querySelector('#modalGameOver');
 const modalPassarNivel = document.querySelector('#modalPassarNivel');
-const btnRepetirJogo = document.querySelector('#btnRepetirJogo'); 
+const btnRepetirJogo = document.querySelector('#btnRepetirJogo');
+const btnPassarNivel = document.querySelector('#btnPassarNivel');
+const btnRepetirJogo1 = document.querySelector('#btnRepetirJogo1');
+
+// button passar de nível abir nova pagina com o próximo nível
+btnPassarNivel.addEventListener('click', function() {
+    window.location.href = "/html/nivel2.html";
+});
+
+// button repetir jogo abir nova pagina com o mesmo nível
+btnRepetirJogo1.addEventListener('click', function() {
+    window.location.href = "/html/nivel1.html";
+});
 
 // largura e altura do canvas
 canvas.width = window.innerWidth;
@@ -61,33 +73,24 @@ function drawPassadeira() {
     ctx.fillRect(850, H/2 + 230, 25, 80);
     ctx.fillRect(900, H/2 + 230, 25, 80);
 }
-
-let nomes_lixos = ['saco_plastico', 'saco_papel', 'garrafa', 'garrafa_agua', 'copo', 'beach-ball'];
+// se o nome do lixo terminar em B, então é para o ecoponto azul (Blue), G = ecoponto verde (Green) e Y = ecoponto amarelo (Yellow)
+let nomes_lixos = ['saco_plasticoY', 'saco_papelB', 'garrafaY', 'garrafa_aguaY', 'copoG', 'paperB'];
+const nr_lixos = nomes_lixos.length;
 let nomes_ecopontos = ['ecoponto_azul', 'ecoponto_amarelo', 'ecoponto_verde'];
 for (const ecoponto of nomes_ecopontos) {
-    loadImage(ecoponto);
+    loadImage(ecoponto, false); // false porque não é um lixo
 }
 
-let nomes_imagens = [...nomes_lixos, ...nomes_ecopontos];
-for (const nome of nomes_imagens) {
-    loadImage(nome);
+
+for (const nome of nomes_lixos) {
+    loadImage(nome, true); // true porque é um lixo
 }
 
-// loadImage('saco_plastico');
-// loadImage('saco_papel');
-// loadImage('garrafa');
-// loadImage('garrafa_agua');
-// loadImage('copo');
-// loadImage('beach-ball');
-// loadImage('ecoponto_azul');
-// loadImage('ecoponto_amarelo');
-// loadImage('ecoponto_verde');
 
-
-function loadImage(name) {
-    images[name] = new Image();
-    images[name].src = "/images/" + name + ".png";
-    images[name].onload = function () {
+function loadImage(nome, e_nome_lixo) {
+    images[nome] = new Image();
+    e_nome_lixo ? images[nome].src = "/images/" + nome.substring(0, nome.length - 1) + ".png": images[nome].src = "/images/" + nome + ".png";
+    images[nome].onload = function () {
         resourceLoaded(); 
     }
     
@@ -111,11 +114,11 @@ imgBall.onload = function () {
 
 let x = 0; // posição inicial
 let y = 0; 
-let speed = 1; // velocidade de movimento
+let speed = 3; // velocidade de movimento
 let mover_proxima_imagem = false; // variável que permite mover a próxima imagem
 // criar uma classe lixos e com proprideades diferentes
 class Lixo {
-    constructor(src, x, y, width, height, speed, l, indice) {
+    constructor(src, x, y, width, height, speed, l, indice, type) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -124,6 +127,7 @@ class Lixo {
         this.speed = speed;
         this.l = l;
         this.indice = indice;
+        this.tipo = type;
         
     }
 
@@ -170,12 +174,14 @@ function drawEcopontos() {
     ecoponto_azul.draw();
     ecoponto_amarelo.draw();
     ecoponto_verde.draw();
+
 }
 
 
 
 let l = -100 
 for (const nome_lixo of nomes_lixos) {
+
     images[nome_lixo].lixo = new Lixo(images[nome_lixo], l, H/2+ 250, 50, 50, speed, l); // criar uma nova instância da classe lixo
     l += 50; // incrementar a posição inicial do lixo
 }
@@ -187,7 +193,7 @@ function animate() {
     for (const nome_lixo of nomes_lixos) {
         images[nome_lixo].lixo.draw(); 
     }
-
+    
     images[nomes_lixos[indice_x]].lixo.move(); 
 
     // console.log(images[nomes_lixos[indice_x]].lixo.speed)
@@ -223,6 +229,7 @@ function addLevel() {
     ctx.fillStyle = "black";
     ctx.fillText(`Nível: ${showLevel}` , 1200, 50);
 }
+
 
 // adicionar o botão de sair do jogo no canvas
 function addExitButton() {
@@ -266,15 +273,11 @@ const timeDecrement = setInterval(function() {
         //alert("Acabou o tempo");
         // abrir a modal de fim de jogo
         modalGameOver.style.display = "block";
+    
 
     }
 
 }, 1000);
-
-// clicar no botão de reiniciar o jogo
-btnRepetirJogo.addEventListener("click", function() {
-    window.location.reload();
-});
 
 
 
@@ -306,6 +309,11 @@ function mouseDown(e) {
     for (i = 0; i < nomes_lixos.length; i++) { // loop para verificar se o mouse está dentro das imagens
         let s = images[nomes_lixos[i]].lixo; // variável que guarda a posição do lixo
         if (mx > s.x && mx < s.x + s.width && my > s.y && my < s.y + s.height) { // se o mouse estiver dentro da imagem
+            //verificar se uma propriedade de um objeto existe
+            if (!s.hasOwnProperty('xInicial')) { 
+                s.xInicial = s.x
+                s.yInicial = s.y
+            }
             dragok = true; // set the drag status to true
             startX = mx - s.x; // set the start x position
             startY = my - s.y; // set the start y position
@@ -348,68 +356,95 @@ function mouseMove(e) {
 function mouseUp(e) {
     
     e.preventDefault();
-
-    let mx = e.pageX - canvas.offsetLeft; // posição do mouse no eixo x
-    let my = e.pageY - canvas.offsetTop; // posição do mouse no eixo y
-
     dragok = false;
+
+    collision();
 
     // call the coliision function
     //collision(mx, my);
 }
 
+let nr_lixos_eliminados = 0
 // verifica se o mouse está dentro do ecoponto de lixo correto e adiciona pontos
 function collision() {
     let s = images[nomes_lixos[i]].lixo; // variável que guarda a imagem do lixo
     let mx = s.x; // posição do eixo x da imagem do lixo
     let my = s.y; // posição do eixo y da imagem do lixo
     // let width = s.width; // largura da imagem do lixo   
-    // let height = s.height; // altura da imagem do lixo
+    // let height = s.height; // altura da imagem do lixo    
 
     // colisão com o ecoponto azul
     if (mx > 300 && mx < 500 && my > 200 && my < 400) {
-        if (s.src === images['saco_papel'].src) {
-            score++;
-            console.log("Acertou");
-
+        if (nomes_lixos[i].slice(-1) == "B") {
+            console.log("acertou", nomes_lixos[i]);   
+            // eliminar uma propriedade do objeto
+            delete images[nomes_lixos[i]];
+            nr_lixos_eliminados++
+            if (nr_lixos_eliminados == nr_lixos) {
+                console.log("acabou");
+                modalPassarNivel.style.display = "block";
+            } 
+            // eliminar o lixo do array
+            nomes_lixos.splice(i, 1);
+            
+            score ++;
         } else {
-            s.x = -200;
-            s.y = -200;
+            if (score > 0) {
+                score --;
+            }
+            s.x = s.xInicial;
+            s.y = s.yInicial;
+            console.log("errou" , nomes_lixos[i]);
         }
     }
 
     // colisão com o ecoponto amarelo
     if (mx > 550 && mx < 750 && my > 200 && my < 400) {
-        if (s.src === images['saco_plastico', 'garrafa', 'garrafa_agua', 'beach-ball'].src) {
-            score++;
-            console.log("Acertou");
-            
+        if (nomes_lixos[i].slice(-1) == "Y") {
+            console.log("Acertou", nomes_lixos[i]);
+            delete images[nomes_lixos[i]];
+            nr_lixos_eliminados++
+            if (nr_lixos_eliminados == nr_lixos) {
+                modalPassarNivel.style.display = "block";
+            }
+
+            // eliminar o lixo do array
+            nomes_lixos.splice(i, 1);
+            score ++;
+
         } else {
-            s.x = -200;
-            s.y = -200;
+            if (score > 0) {
+                score --;
+            }
+            console.log("errou");
+            s.x = s.xInicial;
+            s.y = s.yInicial;
         }
     }
 
     // colisão com o ecoponto verde
     if (mx > 800 && mx < 1000 && my > 200 && my < 400) {
-        if (s.src === images['copo'].src) {
-            score++;
+        if (nomes_lixos[i].slice(-1) == "G") { // se a imagem do lixo for igual a imagem do copo
+            console.log("Acertou", nomes_lixos[i]);
+            delete images[nomes_lixos[i]];
+            nr_lixos_eliminados++
+            if (nr_lixos_eliminados == nr_lixos) {
+                modalPassarNivel.style.display = "block";
+            } 
+            // eliminar o lixo do array
+            nomes_lixos.splice(i, 1);
+            score ++;
         } else {
-            
-            s.x = -200;
-            s.y = -200;
+            console.log("errou");
+            if (score > 0) {
+                score --;
+            }
+            s.x = s.xInicial;
+            s.y = s.yInicial;
         }
     }
 
 }
-
-// abrir a modal de game over quando o tempo acabar
-function gameOver() {
-    if(time === 0) {
-        modalGameOver.style.display = "block";
-    }
-}
-
 
 
 // render minhas imagens em canvas
@@ -434,7 +469,6 @@ function render() {
     addLevel();
     addTime();
     addExitButton();
-    collision();
 
     requestAnimationFrame(render);
 

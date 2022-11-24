@@ -3,104 +3,44 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <title>Jogo da Reciclagem</title>
+    <title>Nível 3</title>
     <meta name="description" content="" />
-    <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/nivel3.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@1,900&display=swap"
-    />
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      canvas{
+          background-image: url("/images/background_3.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed; 
+      }
+    </style>
   </head>
   <body>
-    <div class="nivel-3-div">
-      <img
-        class="two-kids-picking-garbage-park-icon"
-        alt=""
-        src="../images/background_3.png"
-      />
-      
-      <img class="chronometer-icon" alt="" src="../images/cronometro.png" />
+    <canvas id="canvas"></canvas>
 
-      <div class="s-div">180s</div>
-
-      <div class="nvel-3-div">Nível: 3</div>
-
-      <button class="retngulo-2-button"></button>
-      <button class="sair-button">Sair</button>
-      
-      <img
-        class="paper-recycle-icon"
-        alt=""
-        src="../images/ecoponto_azul.png"
-      />
-      <img
-        class="plastic-bin-icon"
-        alt=""
-        src="../images/ecoponto_amarelo.png"
-      />
-      <img
-        class="glass-container-icon"
-        alt=""
-        src="../images/ecoponto_verde.png"
-      />
-      <img
-        class="garbage-can-icon"
-        alt=""
-        src="../images/ecoponto_castanho.png"
-      />
-      <img 
-        class="battery-icon" 
-        alt="" 
-        src="../images/pilhao.png" 
-      />
-
-      <div class="pontos-0-div">Pontos: 0</div>
-
-      <div>
-        <img
-        class="heart-icon"
-        alt=""
-        src="../images/coracao.png"
-        />
-        <img 
-          class="heart-icon1" 
-          alt="" 
-          src="../images/coracao.png" 
-        />
-        <img
-          class="heart-icon2"
-          alt=""
-          src="../images/coracao.png"
-        />
+    <!-- modalquando não conseguir passar de nível -->
+    <div id="modalGameOver" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 200px; background-color: #fff; border-radius: 10px; padding: 20px;">
+          <h2 style="text-align: center; color:#5B22CB">Não conseguiste a pontução suficiente para passar de nível!</h2><br>
+          <button id="btnRepetirJogo" style="display: block; margin: 0 auto; width: 100px; height: 50px; background-color: #5B22CB; color: #fff; border: none; border-radius: 10px; cursor: pointer;">Repetir nível</button>
       </div>
+  </div>
 
-      <div class="grupo-1-div">
-        <div class="retngulo-3-div"></div>
-        <div class="retngulo-4-div"></div>
-        <div class="retngulo-4-div1"></div>
-        <div class="retngulo-4-div2"></div>
-        <div class="retngulo-4-div3"></div>
-        <div class="retngulo-4-div4"></div>
-        <div class="retngulo-4-div5"></div>
-        <div class="retngulo-4-div6"></div>
-        <div class="retngulo-4-div7"></div>
-        <div class="retngulo-4-div8"></div>
-        <div class="retngulo-4-div9"></div>
-        <div class="retngulo-4-div10"></div>
-        <div class="retngulo-4-div11"></div>
-        <div class="retngulo-4-div12"></div>
+  <!-- modal quando passar de nível -->
+  <div id="modalPassarNivel" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 9999;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 300px; background-color: #fff; border-radius: 10px; padding: 20px;">
+          <h2 style="text-align: center; color:#5B22CB"">Parabéns, conseguiste a pontuação suficiente para passar passar de nível!</h2><br>
+          <button id="btnRepetirJogo" style="display: block; margin: 0 auto; width: 100px; height: 50px; background-color: #5B22CB; color: #fff; border: none; border-radius: 10px; cursor: pointer;">Repetir nível</button> <br>
+          <button id="btnPassarNivel" style="display: block; margin: 0 auto; width: 100px; height: 50px; background-color: #5B22CB; color: #fff; border: none; border-radius: 10px; cursor: pointer; margin: top 5px;">Próximo nível</button>
+
       </div>
-      <img 
-        class="plastic-bag-icon" 
-        alt="" 
-        src="../images/saco_plastico.png" 
-      />
-
-    <script></script>
+  </div>
+    <script src="../js/nivel2-3.js" type="module"></script>
   </body>
 </html>
