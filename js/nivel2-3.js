@@ -1,7 +1,3 @@
-//import minha classe de jogo
-//import Game from '/game.js';
-
-
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext("2d");
 
@@ -9,13 +5,17 @@ const modalGameOver = document.querySelector('#modalGameOver');
 const modalPassarNivel = document.querySelector('#modalPassarNivel');
 const btnRepetirJogo = document.querySelector('#btnRepetirJogo'); 
 const btnPassarNivel = document.querySelector('#btnPassarNivel');
+const modalPerderVidas = document.querySelector('#modalPerderVidas');
+
+// fazer o click sobre todos os meus botoes de repetir o jogo e repetir o jogo
+btnRepetirJogo.addEventListener('click', function() {
+    location.reload();
+});
+
 
 // largura e altura do canvas
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
-// criar uma nova instância do jogo
-//let game = new Game();
 
 btnPassarNivel.addEventListener('click', function() {
     window.location.href = "../html/nivel3.html";
@@ -25,7 +25,6 @@ btnPassarNivel.addEventListener('click', function() {
 btnRepetirJogo.addEventListener("click", function() {
     window.location.href = "../html/nivel2.html";
 });
-
 
 
 // função que remoove a barra de scroll do navegador
@@ -82,7 +81,7 @@ function drawPassadeira() {
 }
 
 // se o nome do lixo terminar em B, então é para o ecoponto azul (Blue), G = ecoponto verde (Green) e Y = ecoponto amarelo (Yellow)
-let nomes_lixos = ['saco_plasticoY','compostO', 'saco_papelB','accumulatorP', 'garrafaY', 'bananaO','garrafa_aguaY', 'batteryP','copoG', 'paperB', 'stinkO', ];
+let nomes_lixos = ['saco_plasticoY','compostO', 'saco_papelB','accumulatorP', 'garrafaY', 'bananaO','garrafa_aguaY', 'batteryP','copoG', 'paperB', 'stinkO','bookB','boxB','cameraP','canY', 'egg-cartonB','pcP','toilet-paperB', 'wine-bottleG', 'bagY' ];
 const nr_lixos = nomes_lixos.length;
 let nomes_ecopontos = ['ecoponto_azul', 'ecoponto_amarelo', 'ecoponto_verde', 'ecoponto_castanho', 'ecoponto_pilhao'];
 for (const ecoponto of nomes_ecopontos) {
@@ -111,6 +110,8 @@ function resourceLoaded() {
         render()
     }
 }
+
+// nivel 3 aparecer novas imagens do array de nomes_lixos
 
 // imagem da bola de praia onde vai esconder os lixos
 let imgBall = new Image();
@@ -148,18 +149,9 @@ class Lixo {
 
     // função que faz o lixo mover ate o meio do canvas e parar
     move() {
-       
-        // if (this.x < W/3 + 150 + this.l) {
-        //     this.x += this.speed;
-        // }
-        // else
-        //     mover_proxima_imagem = true;
 
-        // mover o lixo ate sair do canvas e depois mover o proximo lixo
-        if(this.stop == false)
-            this.x = xGlobal
-        
-
+        if(this.stop == false) // se o lixo ainda não parou
+            this.x = xGlobal; // a posição x do lixo é a posição x do rato
     }
 
 }
@@ -198,18 +190,18 @@ function drawEcopontos() {
 
 
 
-const l = 50 
+const l = 50 // posição inicial do lixo
 for (const nome_lixo of nomes_lixos) {
 
     images[nome_lixo].lixo = new Lixo(images[nome_lixo], l, H/2+ 250, 50, 50, false); // criar uma nova instância da classe lixo
 }
 
 let indice_x = nomes_lixos.length -1 // indice do array de imagens
-let xGlobal = l;
+let xGlobal = l; // posição inicial do lixo
 // função de animação dos lixos para o centro do canvas
 function animate() {
-    for (const nome_lixo of nomes_lixos) {
-        images[nome_lixo].lixo.draw(); 
+    for (const nome_lixo of nomes_lixos) { 
+        images[nome_lixo].lixo.draw();
     }
     if (xGlobal < W + l) { // se a posição do lixo for menor que a largura do canvas
         xGlobal += speed; // mover o lixo para a direita
@@ -226,33 +218,20 @@ function animate() {
         }
         
         indice_x--; // decrementa o indice
-        xGlobal = l;
+        xGlobal = l; // volta a posição inicial do lixo
         
     }
-    if (images[nomes_lixos[indice_x]] != undefined) { 
-        images[nomes_lixos[indice_x]].lixo.move(); 
+    if (images[nomes_lixos[indice_x]] != undefined) {  
+        images[nomes_lixos[indice_x]].lixo.move();  
     }   
-    
-
-    // console.log(images[nomes_lixos[indice_x]].lixo.speed)
 
     
 }
 
-// adicionar imagens dos contentores de lixos no canvas
-// function addContainers() {
-
-    
-
-//     ctx.drawImage(images['ecoponto_azul'], 300, 200, 200, 200);
-//     ctx.drawImage(images['ecoponto_amarelo'], 550, 200, 200, 200);
-//     ctx.drawImage(images['ecoponto_verde'], 800, 200, 200, 200);
-// }
-
 // adicionar a pontução do jogador no canvas
 function addScore() {
     ctx.font = "30px Arial";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "violet";
     ctx.fillText(`Pontos: ${score}`, 70, 50);
 
 }
@@ -261,16 +240,26 @@ function addScore() {
 // adicionar nível do jogador no canvas
 function addLevel() {
     ctx.font = "30px Arial";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "violet";
     ctx.fillText(`Nível: ${showLevel}` , 1200, 50);
+
+    // if (showLevel == 3) {
+    //     ctx.font = "30px Arial";
+    //     ctx.fillStyle = "black";
+    //     ctx.fillText(`Nível: ${showLevel}` , 1200, 50);
+
+    //     ctx.font = "30px Arial";
+    //     ctx.fillStyle = "rgb(255, 255, 0)";
+    //     ctx.fillText(`Pontos: ${score}`, 70, 50);
+    // }
 }
 
-// aumentar o nível do jogo na quando atingir 10 pontos e passar para o proximo nivel
-function levelUp() {
-    if (score == 10) {
-        showLevel = 3;
-        speed = 10;
-    }
+// quando estiver na pagina de nivel3.html, o nivel é 3 e o speed é 7
+if (window.location.href.includes('nivel3.html')) {
+    showLevel = 3;
+    time = 180;
+    speed = 7;
+    addLevel();
 }
 
 
@@ -303,7 +292,7 @@ function addExitButton() {
 // adicionar tempo no canvas
 function addTime() {
     ctx.font = "30px Arial";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "violet";
     // color rgb example: ctx.fillStyle = "rgb(255, 0, 0)";
     ctx.fillText(`${time}s`, 120, 110);
 
@@ -335,7 +324,7 @@ function removeHeart() {
         ctx.clearRect(280, 70, 50, 50);
         ctx.clearRect(340, 70, 50, 50);
         // chamar a modal de game over
-        modalGameOver.style.display = "block";
+        modalPerderVidas.style.display = "block";
     }
 }
 
@@ -435,13 +424,6 @@ function mouseUp(e) {
     
     // call the coliision function
     
-}
-
-// adicionar o som do lixo no ecoponto
-function addSound() {
-    let sound = new Audio();
-    sound.src = "../sounds/lixo_no_ecoponto.mp3";
-    sound.play();
 }
 
 let nr_lixos_eliminados = 0
@@ -576,19 +558,6 @@ function collision() {
 }
 
 
-
-// abrir a modal de game over quando o tempo acabar
-function gameOver() {
-    if(time === 0) {
-        if(score >= 10)
-            modalPassarNivel.style.display = "block";
-        else
-            modalGameOver.style.display = "block";
-    }
-}
-
-
-let xCoracao = 220;
 // render minhas imagens em canvas
 function render() {
     

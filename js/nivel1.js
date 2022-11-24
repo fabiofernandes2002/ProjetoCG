@@ -1,7 +1,3 @@
-//import minha classe de jogo
-//import Game from '/game.js';
-
-
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext("2d");
 
@@ -24,10 +20,6 @@ btnRepetirJogo1.addEventListener('click', function() {
 // largura e altura do canvas
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
-// criar uma nova instância do jogo
-//let game = new Game();
-
 
 // função que remoove a barra de scroll do navegador
 window.addEventListener("load", function () {
@@ -89,7 +81,8 @@ for (const nome of nomes_lixos) {
 
 function loadImage(nome, e_nome_lixo) {
     images[nome] = new Image();
-    e_nome_lixo ? images[nome].src = "/images/" + nome.substring(0, nome.length - 1) + ".png": images[nome].src = "/images/" + nome + ".png";
+    // se for um lixo, então o nome do ficheiro é diferente do nome da variável que guarda o nome do lixo (ex: saco_plasticoY.png)
+    e_nome_lixo ? images[nome].src = "/images/" + nome.substring(0, nome.length - 1) + ".png": images[nome].src = "/images/" + nome + ".png"; 
     images[nome].onload = function () {
         resourceLoaded(); 
     }
@@ -114,7 +107,7 @@ imgBall.onload = function () {
 
 let x = 0; // posição inicial
 let y = 0; 
-let speed = 3; // velocidade de movimento
+let speed = 2; // velocidade de movimento
 let mover_proxima_imagem = false; // variável que permite mover a próxima imagem
 // criar uma classe lixos e com proprideades diferentes
 class Lixo {
@@ -138,11 +131,11 @@ class Lixo {
     // função que faz o lixo mover ate o meio do canvas e parar
     move() {
        
-        if (this.x < W/3 + 150 + this.l) {
-            this.x += this.speed;
+        if (this.x < W/3 + 150 + this.l) { // 
+            this.x += this.speed; // mover para a direita
         }
         else
-            mover_proxima_imagem = true;
+            mover_proxima_imagem = true; // se o lixo chegar ao meio do canvas, então mover a próxima imagem
 
     }
 
@@ -179,7 +172,7 @@ function drawEcopontos() {
 
 
 
-let l = -100 
+let l = -100 // posição inicial do lixo
 for (const nome_lixo of nomes_lixos) {
 
     images[nome_lixo].lixo = new Lixo(images[nome_lixo], l, H/2+ 250, 50, 50, speed, l); // criar uma nova instância da classe lixo
@@ -190,29 +183,18 @@ let indice_x = nomes_lixos.length -1 // indice do array de imagens
 // função de animação dos lixos para o centro do canvas
 function animate() {
 
-    for (const nome_lixo of nomes_lixos) {
-        images[nome_lixo].lixo.draw(); 
+    for (const nome_lixo of nomes_lixos) { // para cada imagem do array de imagens
+        images[nome_lixo].lixo.draw();  // desenhar o lixo
     }
     
-    images[nomes_lixos[indice_x]].lixo.move(); 
+    images[nomes_lixos[indice_x]].lixo.move();  // mover a imagem do lixo
 
-    // console.log(images[nomes_lixos[indice_x]].lixo.speed)
 
     if(mover_proxima_imagem && indice_x > 0) { // se o lixo estiver no centro do canvas e o indice for maior que 0
         indice_x--; // decrementa o indice
-        mover_proxima_imagem = false;
+        mover_proxima_imagem = false; // volta a false para não mover a próxima imagem
     }
 }
-
-// adicionar imagens dos contentores de lixos no canvas
-// function addContainers() {
-
-    
-
-//     ctx.drawImage(images['ecoponto_azul'], 300, 200, 200, 200);
-//     ctx.drawImage(images['ecoponto_amarelo'], 550, 200, 200, 200);
-//     ctx.drawImage(images['ecoponto_verde'], 800, 200, 200, 200);
-// }
 
 // adicionar a pontução do jogador no canvas
 function addScore() {
@@ -255,7 +237,6 @@ function addExitButton() {
     });
 }
 
-// adicionar o botão de sair do jogo no canvas com a função de sai 
 
 // adicionar tempo no canvas
 function addTime() {
@@ -273,12 +254,10 @@ const timeDecrement = setInterval(function() {
         //alert("Acabou o tempo");
         // abrir a modal de fim de jogo
         modalGameOver.style.display = "block";
-    
 
     }
 
 }, 1000);
-
 
 
 // imagem do cronometro
@@ -324,9 +303,6 @@ function mouseDown(e) {
 
     // if the mouse is not inside the images
     dragok = false;
-
-    // call the coliision function
-    //collision(mx, my);
     
 }
 
@@ -345,23 +321,16 @@ function mouseMove(e) {
         s.x = mx - startX; // posição do eixo x da imagem do lixo
         s.y = my - startY; // posição do eixo y da imagem do lixo
     }
-
-    // call the coliision function
-    //collision(mx, my);
     
 }
     
-
 // function mouse up in array the images
 function mouseUp(e) {
     
     e.preventDefault();
     dragok = false;
 
-    collision();
-
-    // call the coliision function
-    //collision(mx, my);
+    collision(); // verificar se houve colisão
 }
 
 let nr_lixos_eliminados = 0
@@ -369,13 +338,11 @@ let nr_lixos_eliminados = 0
 function collision() {
     let s = images[nomes_lixos[i]].lixo; // variável que guarda a imagem do lixo
     let mx = s.x; // posição do eixo x da imagem do lixo
-    let my = s.y; // posição do eixo y da imagem do lixo
-    // let width = s.width; // largura da imagem do lixo   
-    // let height = s.height; // altura da imagem do lixo    
+    let my = s.y; // posição do eixo y da imagem do lixo 
 
     // colisão com o ecoponto azul
     if (mx > 300 && mx < 500 && my > 200 && my < 400) {
-        if (nomes_lixos[i].slice(-1) == "B") {
+        if (nomes_lixos[i].slice(-1) == "B") { // se o nome do lixo terminar em B
             console.log("acertou", nomes_lixos[i]);   
             // eliminar uma propriedade do objeto
             delete images[nomes_lixos[i]];
@@ -392,16 +359,14 @@ function collision() {
             if (score > 0) {
                 score --;
             }
-            s.x = s.xInicial;
-            s.y = s.yInicial;
-            console.log("errou" , nomes_lixos[i]);
+            s.x = s.xInicial; // posição do eixo x da imagem do lixo
+            s.y = s.yInicial; // posição do eixo y da imagem do lixo
         }
     }
 
     // colisão com o ecoponto amarelo
     if (mx > 550 && mx < 750 && my > 200 && my < 400) {
-        if (nomes_lixos[i].slice(-1) == "Y") {
-            console.log("Acertou", nomes_lixos[i]);
+        if (nomes_lixos[i].slice(-1) == "Y") { // se o nome do lixo terminar em Y
             delete images[nomes_lixos[i]];
             nr_lixos_eliminados++
             if (nr_lixos_eliminados == nr_lixos) {
@@ -416,16 +381,14 @@ function collision() {
             if (score > 0) {
                 score --;
             }
-            console.log("errou");
-            s.x = s.xInicial;
-            s.y = s.yInicial;
+            s.x = s.xInicial; // posição do eixo x da imagem do lixo
+            s.y = s.yInicial; // posição do eixo y da imagem do lixo
         }
     }
 
     // colisão com o ecoponto verde
     if (mx > 800 && mx < 1000 && my > 200 && my < 400) {
-        if (nomes_lixos[i].slice(-1) == "G") { // se a imagem do lixo for igual a imagem do copo
-            console.log("Acertou", nomes_lixos[i]);
+        if (nomes_lixos[i].slice(-1) == "G") { // verificar se o último caracter do nome do lixo é igual a G
             delete images[nomes_lixos[i]];
             nr_lixos_eliminados++
             if (nr_lixos_eliminados == nr_lixos) {
@@ -435,12 +398,11 @@ function collision() {
             nomes_lixos.splice(i, 1);
             score ++;
         } else {
-            console.log("errou");
             if (score > 0) {
                 score --;
             }
-            s.x = s.xInicial;
-            s.y = s.yInicial;
+            s.x = s.xInicial; // posição do eixo x da imagem do lixo
+            s.y = s.yInicial; // posição do eixo y da imagem do lixo
         }
     }
 
