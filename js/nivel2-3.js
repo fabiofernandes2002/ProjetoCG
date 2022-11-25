@@ -3,13 +3,29 @@ const ctx = canvas.getContext("2d");
 
 const modalGameOver = document.querySelector('#modalGameOver');
 const modalPassarNivel = document.querySelector('#modalPassarNivel');
-const btnRepetirJogo = document.querySelector('#btnRepetirJogo'); 
+const btnRepetirNivel1 = document.querySelector('#btnRepetirNivel1');
+const btnRepetirNivel2 = document.querySelector('#btnRepetirNivel2'); 
+const btnRepetirNivel3 = document.querySelector('#btnRepetirNivel3'); 
 const btnPassarNivel = document.querySelector('#btnPassarNivel');
 const modalPerderVidas = document.querySelector('#modalPerderVidas');
+const modalConcluirJogo = document.querySelector('#modalConcluirJogo');
+const voltarJogar = document.querySelector('#voltarJogar');
 
 // fazer o click sobre todos os meus botoes de repetir o jogo e repetir o jogo
-btnRepetirJogo.addEventListener('click', function() {
-    location.reload();
+// btnRepetirNivel1.addEventListener('click', function() {
+//     location.reload();
+// });
+
+// btnRepetirNivel2.addEventListener('click', function() {
+//     location.reload();
+// });
+
+// btnRepetirNivel3.addEventListener('click', function() {
+//     location.reload();
+// });
+
+voltarJogar.addEventListener('click', function() { 
+    window.location.href = "../html/nivel1.html";
 });
 
 
@@ -21,10 +37,6 @@ btnPassarNivel.addEventListener('click', function() {
     window.location.href = "../html/nivel3.html";
 });
 
-// clicar no botão de reiniciar o jogo
-btnRepetirJogo.addEventListener("click", function() {
-    window.location.href = "../html/nivel2.html";
-});
 
 
 // função que remoove a barra de scroll do navegador
@@ -81,7 +93,7 @@ function drawPassadeira() {
 }
 
 // se o nome do lixo terminar em B, então é para o ecoponto azul (Blue), G = ecoponto verde (Green) e Y = ecoponto amarelo (Yellow)
-let nomes_lixos = ['saco_plasticoY','compostO', 'saco_papelB','accumulatorP', 'garrafaY', 'bananaO','garrafa_aguaY', 'batteryP','copoG', 'paperB', 'stinkO','bookB','boxB','cameraP','canY', 'egg-cartonB','pcP','toilet-paperB', 'wine-bottleG', 'bagY' ];
+let nomes_lixos = ['saco_plasticoY','compostO', 'saco_papelB','accumulatorP', 'garrafaY', 'bananaO','garrafa_aguaY', 'batteryP','copoG', 'paperB', 'stinkO','bookB','boxB','cameraP','leavesO','canY', 'egg-cartonB','bananasO','pcP','toilet-paperB', 'wine-bottleG', 'bagY' ];
 const nr_lixos = nomes_lixos.length;
 let nomes_ecopontos = ['ecoponto_azul', 'ecoponto_amarelo', 'ecoponto_verde', 'ecoponto_castanho', 'ecoponto_pilhao'];
 for (const ecoponto of nomes_ecopontos) {
@@ -223,7 +235,7 @@ function animate() {
     }
     if (images[nomes_lixos[indice_x]] != undefined) {  
         images[nomes_lixos[indice_x]].lixo.move();  
-    }   
+    }
 
     
 }
@@ -243,25 +255,16 @@ function addLevel() {
     ctx.fillStyle = "violet";
     ctx.fillText(`Nível: ${showLevel}` , 1200, 50);
 
-    // if (showLevel == 3) {
-    //     ctx.font = "30px Arial";
-    //     ctx.fillStyle = "black";
-    //     ctx.fillText(`Nível: ${showLevel}` , 1200, 50);
-
-    //     ctx.font = "30px Arial";
-    //     ctx.fillStyle = "rgb(255, 255, 0)";
-    //     ctx.fillText(`Pontos: ${score}`, 70, 50);
-    // }
 }
 
 // quando estiver na pagina de nivel3.html, o nivel é 3 e o speed é 7
 if (window.location.href.includes('nivel3.html')) {
     showLevel = 3;
     time = 180;
-    speed = 7;
+    speed = 5;
     addLevel();
+    
 }
-
 
 // adicionar o botão de sair do jogo no canvas
 function addExitButton() {
@@ -332,13 +335,19 @@ function removeHeart() {
 
 const timeDecrement = setInterval(function() {
     time--;
-    if(time === 0) {
+    if(time === 0 && score < 10) {
         clearInterval(timeDecrement);
         //alert("Acabou o tempo");
         // abrir a modal de fim de jogo
         modalGameOver.style.display = "block";
 
+    }else if(time === 0 && score >= 10) {
+        clearInterval(timeDecrement);
+        //alert("Acabou o tempo");
+        // abrir a modal de fim de jogo
+        modalPassarNivel.style.display = "block";
     }
+
 
 }, 1000);
 
@@ -576,10 +585,6 @@ function render() {
 
     removeHeart(); // remover coração
     
-    // for (nr_coracoes, xCoracao; nr_coracoes > 0; nr_coracoes--, xCoracao += 60) {
-    //     ctx.drawImage(coracao, xCoracao, 70, 50, 50);
-    // }
-
     // chamar minha imagem da bola de praia
     ctx.drawImage(imgBall, 0, 500, 200, 200);
 
@@ -602,6 +607,16 @@ function render() {
             modalGameOver.style.display = "block";
         }
             
+    }
+
+    // se o nivel for 3 e o score for maior ou igual a 15 abrir a modal de conclusão do jogo
+    if (showLevel == 3 && score >= 15) {
+        modalConcluirJogo.style.display = "block";
+    }
+
+    // se já passaram todos os lixos e o score for maior ou igual a 10 abrir a modal de passar de nivel
+    if (nr_lixos_eliminados == nr_lixos && score >= 10) {
+        modalPassarNivel.style.display = "block";
     }
     requestAnimationFrame(render);
 
