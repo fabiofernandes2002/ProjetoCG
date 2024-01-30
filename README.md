@@ -5,8 +5,11 @@ Desenvolvido como parte de um projeto na disciplina de Computação Gráfica, es
 ### Principais Características:
 
 Educação Ambiental Interativa: O jogo proporciona uma experiência divertida e educativa, onde os jogadores aprendem a importância e as técnicas corretas de separação de resíduos para reciclagem.
+
 Diversão para Todas as Idades: Projetado para ser acessível e atraente para um público amplo, o jogo oferece uma forma de aprendizado que cativa tanto crianças quanto adultos.
+
 Recompensas Virtuais: Para incentivar a participação e o engajamento, o jogo inclui um sistema de recompensas que premia os jogadores por suas ações corretas de reciclagem.
+
 Desafios e Níveis: Com diferentes níveis de dificuldade, o jogo desafia os jogadores a melhorarem suas habilidades de reciclagem, aumentando gradualmente a complexidade das tarefas.
 
 ### Impacto e Objetivo:
